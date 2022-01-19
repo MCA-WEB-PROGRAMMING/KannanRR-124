@@ -6,6 +6,7 @@
         <table>
         <form method="POST" >
            <tr><td>Units consumed :</td><td> <input type="number" name="unit"></td><tr>
+           <tr><td>Meter Number : </td><td><input type="number" name="num"></td></tr>
            <tr><td>Type of Area   :</td><td> <select name="area">
            <option value=""></option>
             <option value="Rural">Rural</option>
@@ -19,6 +20,7 @@
         {
             $unit=$_POST["unit"];
             $area=$_POST["area"];
+            $num=$_POST["num"];
             $amt=0;
             if($area="Rural"){
                 $amt=$unit*5;
@@ -38,7 +40,7 @@
             else{
                 $amt=$amt+40;
             }
-        echo "Amount = ",$amt;
+        echo "Meter number : ",$num,"<br>","Amount = ",$amt;
         }
     ?>
     </center>   
