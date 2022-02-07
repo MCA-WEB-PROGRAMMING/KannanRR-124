@@ -1,0 +1,85 @@
+<html>
+<head>
+</head>
+<body>
+    <center>
+        <div style="border: 1px solid black;width:40%;padding:20px">
+            <table>
+                    <tr>
+                        <td>Enter Name : </td>
+                        <td><input type="text" placeholder="Name" id="name" required=""/></td>
+                    </tr>
+                    <tr>
+                        <td><p>Mobile Number    :</p></td>
+                        <td><input type="number" placeholder="number"  required="" id="num"/></td>
+                    </tr>
+                    <tr>
+                        <td><p>Email   :</p></td>
+                        <td><input type="text" placeholder="Email"  required="" id="email"/></td>
+                    </tr>
+                    <tr>
+                        <td><p>Date Of Birth     :</p></td>
+                        <td><input type="date" class="input" id="dob" required=""></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="Username" required="" id="Username"></td>
+                        <td><input type="text" placeholder="Password" required="" id="Password"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><center><button onclick="Validate()" >Submit</button></center></td>
+                    </tr>
+            </table>
+            <div>
+            <div style="visibility: hidden;width: 50px;color :white;background-color: green;" id="p">No Errors</div>
+    </center>   
+<script>
+function Validate()
+{
+    var msg="";
+    var error=0;
+    var r=/^[A-Za-z]+$/;
+    var s=/^[!@#$%&*()_+=|<>?{}\\[\\]~-]$/;
+    var e=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    var name =document.getElementById("name");
+    var number=document.getElementById("num");
+    var dob=document.getElementById("dob");
+    var Username=document.getElementById("Username");
+    var pass=document.getElementById("Password");
+    var email=document.getElementById("email");
+     if (!r.test(name.value))
+     {
+        msg+="Name should be only alphabets\n";
+        error=1;
+     }
+        if(parseInt(dob.value.split('-')[0])<2020)
+     {
+        msg+="Enter a valid date\n";
+        error=1;
+     }
+    if(number.value.toString().length != 10)
+    {
+        msg+="Enter valid number\n";
+        error=1;  
+    }
+    if(!e.test(email.value))
+    {
+        msg+="Email is not valid\n";
+        error=1;    
+    }
+    if(pass.value.toString().length<8)
+    {
+        msg+="Password should be more than 8 charaters\n";
+        error=1;   
+    }
+    if(error==1)
+    {
+        alert(msg);
+    }
+    else{
+        document.getElementById("p").style.visibility="visible";
+    }
+    
+}
+</script>
+</body>
+</html>

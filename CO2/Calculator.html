@@ -1,0 +1,58 @@
+<html>
+<head>
+</head>
+<body>
+    <table>
+            <tr>
+                <td>
+                    <input type="number" id="n1" placeholder="Enter first number">
+                </td>
+                <tr>
+                    <td>
+                        <input type="number" id="n2"  placeholder="Enter second number">
+                    </td> 
+                </tr>
+                <tr>
+                    <td>
+                        <button id="cal" onclick="cal('+')">+</button>
+                        <button id="cal" onclick="cal('-')">-</button>
+                        <button id="cal" onclick="cal('*')">*</button>
+                        <button id="cal" onclick="cal('/')">/</button>
+                    </td>
+                </tr>
+                
+            </tr>
+            <tr>
+               <td>
+                <input type="number" id="ans" placeholder="Answer">
+               </td>
+            </tr>
+    </table>
+    
+<script>
+    function cal(x)
+    {
+        var n1=parseInt(document.getElementById("n1").value);
+        var n2=parseInt(document.getElementById("n2").value);
+        switch(x)
+        {
+            case "+":
+            document.getElementById("ans").value=n1+n2;
+            break;
+            case "-":
+            document.getElementById("ans").value=n1-n2;
+            break;
+            case "*":
+            document.getElementById("ans").value=n1*n2;
+            break;
+            case "/":
+            document.getElementById("ans").value=n1/n2;
+            break;
+            default:
+            document.getElementById("ans").value="Invalid";
+            
+        }
+    }
+</script>
+</body>
+</html>

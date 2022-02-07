@@ -1,0 +1,16 @@
+td
+{
+padding:10px;
+margin:10px;
+width:50%;
+}
+.outer{
+width:28%;
+padding:20px;
+border-radius:20px;
+background-color:#f29455;
+}
+body
+{
+background-color:#CCCCCC;
+}

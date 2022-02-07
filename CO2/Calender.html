@@ -1,0 +1,96 @@
+    <html>
+
+<head>
+</head>
+<style>
+    td,th{
+        border: 1px solid black;
+        padding: 5px;
+        
+    }
+    
+    #a {
+        border: 1px solid black;
+        padding: 5px;
+        width: 25%;
+        margin: 3px;
+        height: 290px;
+        display: inline-block;
+    }
+    #x
+    {
+        height:240px;
+    }
+</style>
+
+<body><center>
+    <input type="number" id="year" required>
+    <button onclick="cal()">Dislpay Calender</button>
+    <h1 id="y"></h1></center>
+    <br>
+    <script>
+        function daysInMonth (month, year) {
+            return new Date(year, month, 0).getDate();
+        }
+        function getDay(date) { 
+        let day = date.getDay();
+        if (day == 0 || day==7) day = 0; 
+        return day;
+        }
+        function cal() {
+            var y=parseInt(document.getElementById("year").value);
+            if(document.getElementById("year").value!="")
+            {
+                document.getElementById("y").innerHTML=y;
+            var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            var x = 0;
+            
+            var d="<center><div>";
+            var all="";
+            var table = "<tr><th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th></tr>";
+            var rows="";
+            for(var s=1;s<=12;s++)
+            {  var f=new Date(y, s-1);
+                var col="";
+                for(let z=0;z<getDay(f);z++)
+                {
+                    col+="<td> </td>";
+                }
+                x=0;
+                var cn=0;
+                rows="";
+                all="";
+                d+="<div id='a'>"
+                for (var i = 0; i < 7; i++) {
+                    rows+="<tr>";
+                        if(x==0)
+                        {
+                            rows+=col;
+                        }
+                    for (var j = 0; j < 7; j++) {
+                        cn++;
+                        if(cn==1)
+                        {
+                            j=getDay(f);
+                        }
+                        x++;
+                        if (x > daysInMonth(s-1,2021)) {
+                            break;
+                        }
+                    rows += "<td>"+x+"</td>"; 
+                    }   
+                    rows+="</tr>"; 
+                }
+                all += "<div id='x'><table>"+table+rows+"</table></div>";
+                d+=all+"<div style='float:right' id='b'><h2>"+months[s-1]+"</h2></div></div>"; 
+            }
+            d+="</div></center>";
+            document.body.innerHTML += d;
+            }
+            
+
+        }
+    </script>
+</body>
+
+</html>

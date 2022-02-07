@@ -1,0 +1,16 @@
+<html>
+<head>
+</head>
+<body id="x" style="background-color: #605000;">
+   <button onclick="cal()">change</button>
+<script>
+    function cal()
+    {
+        c=Math.round(Math.random()*100000);
+        c=c+605000;
+        var b="background-color:#"+c;
+        document.getElementById("x").setAttribute("style",b);
+    }
+</script>
+</body>
+</html>
